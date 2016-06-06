@@ -1,0 +1,66 @@
+name: ejabberd
+version: "16.04"
+summary: ejabberd XMPP server
+description: ejabberd is a Jabber/XMPP server written in Erlang
+
+parts:
+  ejabberd:
+    plugin: autotools
+    source: https://github.com/processone/ejabberd.git
+    source-tag: "16.04"
+    source-type: git
+    build-packages:
+      - build-essential
+      - erlang-dev
+      - erlang-eunit
+      - erlang-jiffy
+      - erlang-oauth2
+      - erlang-parsetools
+      - erlang-xmlrpc
+      - hevea
+      - libexpat1-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - libyaml-dev
+      - po-debconf
+      - rebar
+      - texlive-latex-base
+      - texlive-latex-recommended
+      - texlive-latex-extra
+    stage-packages:
+      - erlang-asn1
+      - erlang-base
+      - erlang-crypto
+      - erlang-inets
+      - erlang-lager
+      - erlang-mnesia
+      - erlang-p1-cache-tab
+      - erlang-p1-iconv
+      - erlang-p1-mysql
+      - erlang-p1-pam
+      - erlang-p1-pgsql
+      - erlang-p1-sip
+      - erlang-p1-stringprep
+      - erlang-p1-stun
+      - erlang-p1-tls
+      - erlang-p1-utils
+      - erlang-p1-xml
+      - erlang-p1-yaml
+      - erlang-p1-zlib
+      - erlang-redis-client
+      - erlang-sqlite3
+      - erlang-ssl
+      - erlang-xmerl
+
+apps:
+  ejabberd:
+    command: sbin/ejabberdctl --config-dir $SNAP/etc/ejabberd --spool $SNAP_DATA/var --logs $SNAP_DATA/logs start
+    daemon: forking
+    plugs:
+      - network
+      - network-bind
+  ejabberdctl:
+    command: sbin/ejabberdctl --config-dir $SNAP/etc/ejabberd --spool $SNAP_DATA/var --logs $SNAP_DATA/logs
+    plugs:
+      - network
+      - network-bind
