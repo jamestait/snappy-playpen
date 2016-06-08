@@ -55,6 +55,7 @@ parts:
 apps:
   ejabberd:
     command: sbin/ejabberdctl --config-dir $SNAP/etc/ejabberd --spool $SNAP_DATA/var --logs $SNAP_DATA/logs start
+    stop-command: sbin/ejabberdctl --config-dir $SNAP/etc/ejabberd --spool $SNAP_DATA/var --logs $SNAP_DATA/logs stop
     daemon: forking
     plugs:
       - network
