@@ -1,0 +1,23 @@
+#!/bin/bash
+
+export HOME=$SNAP_USER_DATA
+
+if [ -f "$HOME/.erlang.cookie" ]; then
+    chmod 0600 "$HOME/.erlang.cookie"
+fi
+
+mkdir -p "$SNAP_DATA/etc"
+
+if [ ! -f "$SNAP_DATA/etc/ejabberd.yml" ] ; then
+    cp "$SNAP/etc/ejabberd/ejabberd.yml" "$SNAP_DATA/etc/ejabberd.yml"
+fi
+
+if [ ! -f "$SNAP_DATA/etc/ejabberdctl.cfg" ] ; then
+    cp "$SNAP/etc/ejabberd/ejabberdctl.cfg" "$SNAP_DATA/etc/ejabberdctl.cfg"
+fi
+
+if [ ! -f "$SNAP_DATA/etc/inetrc" ] ; then
+    cp "$SNAP/etc/ejabberd/inetrc" "$SNAP_DATA/etc/inetrc"
+fi
+
+exec $SNAP/sbin/ejabberdctl --config-dir $SNAP_DATA/etc --spool $SNAP_DATA/spool --logs $SNAP_DATA/logs "$@"
