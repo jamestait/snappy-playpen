@@ -27,15 +27,6 @@ diff -rNu --exclude '*.beam' ../../snap/sbin/ejabberdctl snap/sbin/ejabberdctl
  
  # check the proper system user is used if defined
  if [ "$INSTALLUSER" != "" ] ; then
-@@ -39,6 +39,8 @@
-     fi
- else
-     EXEC_CMD="bash -c"
-+    HOME=$SNAP_USER_DATA
-+    export HOME
- fi
- 
- # parse command line parameters
 diff -rNu --exclude '*.beam' ../../snap/usr/lib/erlang/bin/erl snap/usr/lib/erlang/bin/erl
 --- ../../snap/usr/lib/erlang/bin/erl	2016-04-08 10:19:33.000000000 +0000
 +++ snap/usr/lib/erlang/bin/erl	2016-06-03 17:19:59.897833162 +0000
