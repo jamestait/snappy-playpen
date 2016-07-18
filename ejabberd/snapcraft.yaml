@@ -1,13 +1,14 @@
 name: ejabberd
-version: "16.04"
+version: "16.06"
 summary: ejabberd XMPP server
 description: ejabberd is a Jabber/XMPP server written in Erlang
+confinement: strict
 
 parts:
   ejabberd:
     plugin: autotools
     source: https://github.com/processone/ejabberd.git
-    source-tag: "16.04"
+    source-tag: "16.06"
     source-type: git
     build-packages:
       - build-essential
