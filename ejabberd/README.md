@@ -1,11 +1,11 @@
 The `snapcraft.yaml` does not quite allow us to create a working Snap package
 yet.  Instead, you will need to create the prepared `snap` directory with
-`snapcraft strip` and then apply the following patch:
+`snapcraft prime` and then apply the following patch:
 
 ```
-diff -rNu --exclude '*.beam' ../../snap/sbin/ejabberdctl snap/sbin/ejabberdctl
---- ../../snap/sbin/ejabberdctl	2016-06-08 09:53:55.718037456 +0000
-+++ snap/sbin/ejabberdctl	2016-06-06 23:42:56.656518496 +0000
+diff -rNu --exclude '*.beam' ../../prime/sbin/ejabberdctl prime/sbin/ejabberdctl
+--- ../../prime/sbin/ejabberdctl	2016-06-08 09:53:55.718037456 +0000
++++ prime/sbin/ejabberdctl	2016-06-06 23:42:56.656518496 +0000
 @@ -7,15 +7,15 @@
  ERL_PROCESSES=250000
  ERL_MAX_ETS_TABLES=1400
@@ -27,9 +27,9 @@ diff -rNu --exclude '*.beam' ../../snap/sbin/ejabberdctl snap/sbin/ejabberdctl
  
  # check the proper system user is used if defined
  if [ "$INSTALLUSER" != "" ] ; then
-diff -rNu --exclude '*.beam' ../../snap/usr/lib/erlang/bin/erl snap/usr/lib/erlang/bin/erl
---- ../../snap/usr/lib/erlang/bin/erl	2016-04-08 10:19:33.000000000 +0000
-+++ snap/usr/lib/erlang/bin/erl	2016-06-03 17:19:59.897833162 +0000
+diff -rNu --exclude '*.beam' ../../prime/usr/lib/erlang/bin/erl prime/usr/lib/erlang/bin/erl
+--- ../../prime/usr/lib/erlang/bin/erl	2016-04-08 10:19:33.000000000 +0000
++++ prime/usr/lib/erlang/bin/erl	2016-06-03 17:19:59.897833162 +0000
 @@ -18,7 +18,7 @@
  # 
  # %CopyrightEnd%
