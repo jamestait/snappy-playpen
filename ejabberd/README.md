@@ -17,7 +17,7 @@ diff -rNu --exclude '*.beam' ../../prime/sbin/ejabberdctl prime/sbin/ejabberdctl
  SCRIPT_DIR=`cd ${0%/*} && pwd`
 -ERL=/home/jtait/src/snappy-stuff/snappy-playpen/ejabberd/parts/ejabberd/install/usr/bin/erl
 -IEX=/bin/iex
--EPMD=/bin/epmd
+-EPMD=/home/jtait/src/snappy-stuff/snappy-playpen/ejabberd/parts/ejabberd/install/usr/bin/epmd
 +ERL=$SNAP/usr/bin/erl
 +IEX=$SNAP/bin/iex
 +EPMD=$SNAP/bin/epmd
