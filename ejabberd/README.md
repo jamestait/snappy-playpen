@@ -20,7 +20,7 @@ diff -rNu --exclude '*.beam' ../../prime/sbin/ejabberdctl prime/sbin/ejabberdctl
 -EPMD=/home/jtait/src/snappy-stuff/snappy-playpen/ejabberd/parts/ejabberd/install/usr/bin/epmd
 +ERL=$SNAP/usr/bin/erl
 +IEX=$SNAP/bin/iex
-+EPMD=$SNAP/bin/epmd
++EPMD=$SNAP/usr/bin/epmd
  INSTALLUSER=
 -ERL_LIBS=/lib
 +ERL_LIBS=$SNAP/lib
