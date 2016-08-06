@@ -10,6 +10,7 @@ parts:
     source: https://github.com/processone/ejabberd.git
     source-tag: "16.08"
     source-type: git
+    configflags: [--enable-all]
     build-packages:
       - build-essential
       - erlang-dev
@@ -17,6 +18,7 @@ parts:
       - erlang-parsetools
       - hevea
       - libexpat1-dev
+      - libpam0g-dev
       - libsqlite3-dev
       - libssl-dev
       - libyaml-dev
