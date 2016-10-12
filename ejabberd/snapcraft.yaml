@@ -1,16 +1,28 @@
 name: ejabberd
-version: "16.08"
+version: "16.09"
 summary: ejabberd XMPP server
 description: ejabberd is a Jabber/XMPP server written in Erlang
 confinement: strict
+grade: stable
 
 parts:
   ejabberd:
     plugin: autotools
     source: https://github.com/processone/ejabberd.git
-    source-tag: "16.08"
+    source-tag: "16.09"
     source-type: git
-    configflags: [--enable-all]
+    configflags:
+      - --enable-odbc
+      - --enable-mysql
+      - --enable-pgsql
+      - --enable-pam
+      - --enable-zlib
+      - --enable-riak
+      - --enable-redis
+      - --enable-elixir
+      - --enable-iconv
+      - --enable-debug
+      - --enable-tools
     build-packages:
       - build-essential
       - erlang-dev
@@ -37,9 +49,9 @@ parts:
       - erlang-syntax-tools
       - erlang-xmerl
   wrapper:
-    plugin: copy
+    plugin: dump
     source: .
-    files:
+    organize:
       ejabberdctl.wrapper: bin/ejabberdctl.wrapper
 
 apps:
